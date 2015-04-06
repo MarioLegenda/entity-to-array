@@ -126,8 +126,6 @@ class EntityToArrayTest extends \PHPUnit_Framework_TestCase
             'only-names' => true
         ))->toArray();
 
-        var_dump($userAsArray);
-
         foreach($userAsArray as $key => $value) {
             $this->assertInternalType('array', $value,
                 'EntityToArrayTest::testMultipleMethodsWithMethodNameKey()-> EntityToArray::toArray() should return array');
