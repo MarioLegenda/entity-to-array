@@ -4,6 +4,7 @@ namespace Tests;
 
 
 use Demo\User;
+use EntityToArray\Config;
 use EntityToArray\EntityToArray;
 
 class EntityToArrayTest extends \PHPUnit_Framework_TestCase
@@ -58,6 +59,22 @@ class EntityToArrayTest extends \PHPUnit_Framework_TestCase
             $this->assertInstanceOf('Demo\\User', $user,
                 'EntityToArrayTest::testConstruction()-> User array entry is not of type user');
         }
+    }
+
+    public function testConfig() {
+        $config = new Config();
+        $config
+            ->numericKeys(true)
+            ->multidimensional(true);
+
+        $this->assertTrue($config->numericKeys(),
+            'EntityToArrayTest::testConfig()-> Config::numberKeys() did not return true but it should have');
+        $this->assertTrue($config->multidimensional(),
+            'EntityToArrayTest::multidimensional()-> Config::multidimensional() did not return true but it should have');
+
+        $config->reset();
+
+
     }
 
     public function testSingleMethod() {
